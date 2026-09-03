@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5865F2">
+  <title>O invitație pentru tine 💜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+    <div class="stars"></div>
+  </div>
+
+  <main class="card" aria-live="polite">
+    <div class="progress">
+      <span class="progress-fill" id="progressFill"></span>
+    </div>
+
+    <div class="step active" id="step1">
+      <div class="emoji">💬</div>
+      <p class="eyebrow">O mică invitație</p>
+      <h1>Vrei să te alături mie la o conversație pe Discord?</h1>
+      <p class="subtitle">Fără presiune. Doar o conversație, puțin timp împreună și poate niște râsete. :)</p>
+      <div class="buttons">
+        <button class="primary" onclick="nextStep()">Da, sigur 💜</button>
+        <button class="secondary" onclick="showNo()">Nu acum</button>
+      </div>
+      <p class="tiny" id="noMessage"></p>
+    </div>
+
+    <div class="step" id="step2">
+      <div class="emoji">🕐</div>
+      <p class="eyebrow">Pasul 1 din 3</p>
+      <h2>La ce oră ai vrea să vorbim?</h2>
+      <p class="subtitle">Alege ora care îți convine cel mai mult.</p>
+      <input class="time-input" id="time" type="time" value="20:00">
+      <div class="buttons">
+        <button class="primary" onclick="saveTime()">Continuă →</button>
+        <button class="back" onclick="prevStep()">← Înapoi</button>
+      </div>
+    </div>
+
+    <div class="step" id="step3">
+      <div class="emoji">✨</div>
+      <p class="eyebrow">Pasul 2 din 3</p>
+      <h2>Ce ai chef să facem?</h2>
+      <p class="subtitle">Poți alege una sau mai multe variante.</p>
+      <div class="choices" id="activityChoices">
+        <button class="choice" data-value="Doar să vorbim">💬 <span>Doar să vorbim</span></button>
+        <button class="choice" data-value="Să ne jucăm">🎮 <span>Să ne jucăm</span></button>
+        <button class="choice" data-value="Să ne uităm la ceva">🎬 <span>Să ne uităm la ceva</span></button>
+        <button class="choice" data-value="Ceva spontan">🌙 <span>Ceva spontan</span></button>
+      </div>
+      <div class="buttons">
+        <button class="primary" onclick="saveActivity()">Continuă →</button>
+        <button class="back" onclick="prevStep()">← Înapoi</button>
+      </div>
+    </div>
+
+    <div class="step" id="step4">
+      <div class="emoji">📝</div>
+      <p class="eyebrow">Pasul 3 din 3</p>
+      <h2>Mai vrei să adaugi ceva?</h2>
+      <p class="subtitle">Opțional — poți lăsa câmpul gol.</p>
+      <textarea id="note" maxlength="180" placeholder="De exemplu: „Aș vrea să ne jucăm ceva chill.”"></textarea>
+      <div class="buttons">
+        <button class="primary" onclick="showSummary()">Vezi invitația →</button>
+        <button class="back" onclick="prevStep()">← Înapoi</button>
+      </div>
+    </div>
+
+    <div class="step" id="step5">
+      <div class="emoji">🎉</div>
+      <p class="eyebrow">Avem un plan!</p>
+      <h2>Te aștept pe Discord 💜</h2>
+      <div class="summary">
+        <div><span>🕐 Ora</span><strong id="summaryTime">20:00</strong></div>
+        <div><span>✨ Ce facem</span><strong id="summaryActivity">Doar să vorbim</strong></div>
+        <div id="summaryNoteRow"><span>📝 Notiță</span><strong id="summaryNote"></strong></div>
+      </div>
+      <p class="subtitle">Dacă totul sună bine, ne vedem pe Discord.</p>
+      <a class="primary discord" id="discordLink" href="https://discordapp.com/channels/1345476883797643315/1521892734191796315" target="_blank" rel="noopener">Intră pe Discord 💜</a>
+      <button class="back reset" onclick="resetAll()">Refă invitația</button>
+    </div>
+  </main>
+
+  <footer>made with 💜 for a good conversation</footer>
+  <script src="script.js"></script>
+</body>
+</html>
